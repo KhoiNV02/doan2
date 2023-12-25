@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Trang để soạn nội dung sự kiện</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="./styles/trang-son-ni-dung-s-kin.css"/>
+</head>
+<body>
+<div class="trang-son-ni-dung-s-kin-Lqb">
+  <div class="header-DeV">
+    <div class="auto-group-aqdx-UqK">
+      <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-Bzd">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
+      <p class="truyn-thng-v-s-kin-2kM">Truyền thông và sự kiện</p>
+      <img class="image-2-KDf" src="./assets/image-2-7NM.png"/>
+    </div>
+    <p class="trang-ch-Dpq">Trang chủ</p>
+    <p class="xt-thng-giR">Xét thưởng</p>
+    <p class="ng-gp-MJm">Đóng góp</p>
+    <p class="cp-nht-RZX">Cập nhật</p>
+    <div class="auto-group-myad-uUh">Search.....</div>
+  </div>
+  <p class="tn-ca-s-kin-Zp9">Tên của sự kiện </p>
+  <div id="imageContainer">
+    <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+    <img id="previewImage" src="#" alt="Preview">
+</div>
+  <div class="footer-ScM">
+    <div class="group-9-ysB">
+      <img class="image-2-Vad" src="./assets/image-2-uTK.png"/>
+      <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-cv9">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
+    </div>
+    <div class="group-10-WVj">
+      <p class="khu-ph-6-plinh-trung-tpth-c-tph-ch-minh-Duw">Khu phố 6, P.Linh Trung, Tp.Thủ Đức, Tp.Hồ Chí Minh.</p>
+      <p class="in-thoi-028-372-51993-ext-113h-t-xa-qua-mng-112h-chnh-quy-Xvd">Điện thoại: (028) 372 51993, Ext: 113(Hệ từ xa qua mạng), 112(Hệ chính quy).</p>
+      <p class="email-uitgmailcom-S21">Email: UIT@gmail.com</p>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  function previewImage(event) {
+    var input = event.target;
+    var preview = document.getElementById('previewImage');
+
+    var reader = new FileReader();
+
+    reader.onload = function() {
+        preview.src = reader.result;
+    };
+
+    reader.readAsDataURL(input.files[0]);
+}
+
+</script>

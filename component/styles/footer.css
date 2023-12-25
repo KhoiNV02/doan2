@@ -1,0 +1,94 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 153.5rem;
+}.footer-bxq {
+  width: 100%;
+  height: 21.9rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.footer-bxq .group-9-9jT {
+  width: 95.9843rem;
+  height: 13.0578rem;
+  position: absolute;
+  left: 35.5rem;
+  top: 2.1rem;
+}
+.footer-bxq .group-9-9jT .image-2-Umj {
+  width: 15.8843rem;
+  height: 12.6578rem;
+  position: absolute;
+  left: 80.1rem;
+  top: 0.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.footer-bxq .group-9-9jT .trng-i-hc-cng-ngh-thng-tin-hqg-hcm-1Fs {
+  width: 82.1rem;
+  height: 3.9rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.2125;
+  color: #0e0e0e;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.footer-bxq .group-10-HDP {
+  width: 73.2rem;
+  height: 11.5rem;
+  position: absolute;
+  left: 39.95rem;
+  top: 8.4rem;
+  row-gap: 2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.footer-bxq .group-10-HDP .khu-ph-6-plinh-trung-tpth-c-tph-ch-minh-zNh {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #0e0e0e;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.footer-bxq .group-10-HDP .in-thoi-028-372-51993-ext-113h-t-xa-qua-mng-112h-chnh-quy-tys {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #0e0e0e;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.footer-bxq .group-10-HDP .email-uitgmailcom-arh {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #0e0e0e;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
