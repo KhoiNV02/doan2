@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/login.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main">
+    <div class="login">
+      <div class="headerlogin">
+        <img src="./assets/image-2.png"/>
+        <div class="des">
+          <p >Truyền thông và sự kiện</p>
+          <p >Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
+        </div>
+        
+      </div>
+      <div class="bodylogin">
+        <div class="log">
+          <input type="text">
+          <input id="pass" type="password">
+          <img id="matkhaune" src="./assets/closeEye.png" alt="">
+        </div>
+        <a href="">Quên mật khẩu</a>
+        <div class="DangNhap">
+          Đăng Nhập
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  var matkhaune=document.querySelector('#matkhaune');
+  var pass=document.querySelector('#pass');
+  var o=true;
+matkhaune.onclick=function(){
+  if (o)
+  {
+    matkhaune.setAttribute("src",'./assets/eye.png');
+  matkhaune.style.top='8.5rem';
+  matkhaune.style.width='8%';
+  pass.type="text";
+o=!o;  
+}
+else
+{
+  o=!o;
+  matkhaune.setAttribute("src",'./assets/closeEye.png');
+  matkhaune.style.top='8.09rem';
+  matkhaune.style.width='8.4%';
+  pass.type="password";
+}
+}
+</script>

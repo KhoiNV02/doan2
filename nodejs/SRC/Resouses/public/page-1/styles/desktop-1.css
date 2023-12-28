@@ -26,7 +26,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  border: solid 0.1rem #000000;
+  /* border: solid 0.1rem #000000; */
   background-color: rgba(217, 217, 217, 0.5);
 }
 .desktop-1-4Qu .auto-group-us8h-f9o {
@@ -149,7 +149,46 @@ body {
   background-color: #f1f0f0;
   border-radius: 3rem;
   flex-shrink: 0;
+  margin-left: -6rem;
+  margin-right: 1rem;
 }
+.cir{
+  background-color: rgb(254, 254, 254);
+
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  background-size: cover;
+}
+.infoo
+{
+  background-color: rgb(254, 254, 254);
+  height: 10rem;
+  width: 20rem;
+  position: absolute;
+  z-index: 9999;
+  left:132rem;
+  top:9rem;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: none;
+}
+
+.mssv
+{
+  height: 45%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.loggout
+{
+  cursor: pointer;
+}
+
 .desktop-1-4Qu .auto-group-us8h-f9o .s-kin-ni-bt-v-mi-nht-zSH {
   margin: 0rem 2rem 0rem 1.5rem;
   box-sizing: border-box;

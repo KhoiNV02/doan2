@@ -5,13 +5,16 @@ const ObjectId = Schema.ObjectId;
   mongoose.plugin(slug);
 const Course1 = new Schema({
   name: {type: String},
-  nam:{type: String},
-  member:{type:Array},
-  condition:{type:Array},
+  link:{type: String},
+  condition:{type:String},
+  img:{type:Array},
+  descript:{type:String},
+  type:{type:String},
+  dateUp:{type:String},
 });
 
 
-const event = mongoose.model('event', Course1);
+const eventCurrent= mongoose.model('eventCurrent', Course1);
 
-module.exports = event;
+module.exports = eventCurrent;
 //module.exports=mongoose.model('Course',Course)

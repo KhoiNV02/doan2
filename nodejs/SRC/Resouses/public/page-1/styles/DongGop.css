@@ -160,7 +160,7 @@ body {
   height: 50px;
 font-size: 2rem;
   appearance: none; /* Ẩn giao diện mặc định của select box */
-  background-image: url('/assets/group.png'); /* Đường dẫn đến hình ảnh của nút chỉ xuống */
+  background-image: url('page-1/assets/group.png'); /* Đường dẫn đến hình ảnh của nút chỉ xuống */
   background-size: 30px; /* Kích thước của nút chỉ xuống */
   background-position: right 10px center; /* Vị trí của nút chỉ xuống */
   background-repeat: no-repeat; /* Không lặp lại hình ảnh */

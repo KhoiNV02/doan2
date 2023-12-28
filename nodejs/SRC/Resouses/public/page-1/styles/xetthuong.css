@@ -830,6 +830,11 @@ font-size: 2rem;
   background-color: rgba(121, 165, 252, 0.5899999738);
   border-radius: 2.25rem;
   flex-shrink: 0;
+  cursor: pointer;
+}
+.group-7-cJ9:active
+{
+  opacity: 0.5;
 }
 .trang-ng-k-xt-thng-ZED .footer-GtV {
   width: 100%;

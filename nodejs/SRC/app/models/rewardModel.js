@@ -5,13 +5,11 @@ const ObjectId = Schema.ObjectId;
   mongoose.plugin(slug);
 const Course1 = new Schema({
   name: {type: String},
-  nam:{type: String},
-  member:{type:Array},
-  condition:{type:Array},
+  link:{type: String},
 });
 
 
-const event = mongoose.model('event', Course1);
+const reward= mongoose.model('reward', Course1);
 
-module.exports = event;
+module.exports = reward;
 //module.exports=mongoose.model('Course',Course)

@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 async function connect(){
 try{
-    await mongoose.connect('mongodb+srv://bietdoibaothu:Khoi123456789!@cluster0.duwjpta.mongodb.net/QuanLyKhoaHoc');
+    await mongoose.connect('mongodb+srv://bietdoibaothu:bietdoibaothu@cluster0.duwjpta.mongodb.net/QuanLySuKien');
     
     console.log('susseccfully');
 }

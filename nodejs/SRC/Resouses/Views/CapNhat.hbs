@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Trang để quản lý sự kiện</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="../page-1/styles/CapNhat.css"/>
+</head>
+<body>
+<div class="trang-qun-l-s-kin-333">
+  {{!-- <div class="header-xQu">
+    <div class="auto-group-tpgh-4yj">
+      <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-zMb">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
+      <p class="truyn-thng-v-s-kin-G4D">Truyền thông và sự kiện</p>
+      <img class="image-2-xSq" src="../page-1/assets/image-2-roP.png"/>
+    </div>
+    <p class="trang-ch-6ow">Trang chủ</p>
+    <p class="xt-thng-zeR">Xét thưởng</p>
+    <p class="ng-gp-uWV">Đóng góp</p>
+    <p class="cp-nht-EHs">Cập nhật</p>
+    <div class="auto-group-68tm-9Qq">Search.....</div>
+  </div> --}}
+  <div class="auto-group-vqpm-R7T">
+    <div class="auto-group-kplm-kQd">
+    
+      <select style="background-image: url('../page-1/assets/group.png');" id="cars" name="cars" class="auto-group-dkzh-f1o" aria-placeholder="Loại hình sự kiện">
+        <option value="volvo">Chọn loại giấy khen thưởng</option>
+        <option value="1">giấy khen loại hình học thuật</option>
+        <option value="2">giấy khen loại hình thể thao</option>
+      </select>
+      <!-- <div class="group-6-mj3">Upload</div> -->
+      <div id="imageContainer" class="">
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)"> 
+        <img id="previewImage" src="" alt="Preview">
+    </div>
+    </div>
+    <div class="group-7-R2u" id="update">Cập nhật</div>
+  </div>
+  <div class="footer-gzR">
+    <div class="group-9-F1w">
+      <img class="image-2-U9b" src="../page-1/assets/image-2-Mg1.png"/>
+      <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-rR3">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
+    </div>
+    <div class="group-10-ii9">
+      <p class="khu-ph-6-plinh-trung-tpth-c-tph-ch-minh-dq7">Khu phố 6, P.Linh Trung, Tp.Thủ Đức, Tp.Hồ Chí Minh.</p>
+      <p class="in-thoi-028-372-51993-ext-113h-t-xa-qua-mng-112h-chnh-quy-9YZ">Điện thoại: (028) 372 51993, Ext: 113(Hệ từ xa qua mạng), 112(Hệ chính quy).</p>
+      <p class="email-uitgmailcom-dyX">Email: UIT@gmail.com</p>
+    </div>
+  </div>
+</div>
+</body>
+{{!-- <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-storage.js"></script>
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-app.js"> --}}
+</script>
+<script>
+   var formData;
+   var anh;
+    function previewImage(event) {
+    var input = event.target;
+    var preview = document.getElementById('previewImage');
+
+    var reader = new FileReader();
+
+    reader.onload = function() {
+        preview.src = reader.result;
+    };
+
+console.log(input.files[0]);
+anh=input.files[0];
+    reader.readAsDataURL(input.files[0]);
+   formData   = new FormData();
+  formData.append('image', input.files[0]);
+}
+</script>
+<script type="module">
+  console.log("hehe");
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js';
+  import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js';
+const firebaseConfig = {
+  apiKey: "AIzaSyC3bcHFNjJ2_obnMGg3gwGsgd5MAGYwcK4",
+  authDomain: "doan2-15a36.firebaseapp.com",
+  projectId: "doan2-15a36",
+  storageBucket: "doan2-15a36.appspot.com",
+  messagingSenderId: "393629700160",
+  appId: "1:393629700160:web:02107109fd8dfe82044fa5",
+  measurementId: "G-JYFQ2X6M42"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+  function upload(){
+    // Create a reference to 'mountains.jpg'
+const mountainsRef = ref(storage, 'Anh1.jpg');
+
+uploadBytes(mountainsRef,anh).then((snapshot) => {
+ getDownloadURL(snapshot.ref).then((url)=>{
+console.log(url);
+ })
+});
+ }
+ 
+var update=document.querySelector("#update");
+console.log(update);
+
+update.onclick=function()
+{
+upload();
+alert("thành công");
+  {{!-- axios.post('http://localhost:3000/upload', formData)
+    .then(response => {
+     alert("cập nhật chứng chỉ thành công");
+     location.reload();
+    })
+    .catch(error => {
+      console.error('Error uploading image:', error);
+    }); --}}
+}
+</script>
+<script>
+  var MSSV='20520999';
+var nav=document.querySelectorAll(".nav");
+   for (var j = 0; j < nav.length; j++) {
+        nav[j].style.textDecoration = 'none'; // Fix the typo in textDecorator
+        nav[j].style.color = 'black';
+
+      }
+ nav[3].style.color = '#0047fe';
+      nav[3].style.textDecoration = 'underline'; // Fix the typo in textDecorator
+  {{!-- for (var i = 0; i < nav.length; i++) {
+  nav[i].onclick = function (index) {
+    return function () {
+      if (index===0)
+      {
+         window.location.href = `{{local}}/home`;
+      }
+      else
+      if (index===1)
+      {
+             window.location.href = `{{local}}/thuong?MSSV=${MSSV}`;
+      }
+      else
+      if (index===2)
+      {
+      window.location.href = `{{local}}/views`;
+      }
+      else
+      if (index===3)
+      {
+          window.location.href = `{{local}}/CapNhat`;
+      }
+      
+    };
+  }(i);
+} --}}
+</script>
