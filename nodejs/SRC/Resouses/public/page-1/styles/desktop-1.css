@@ -347,6 +347,11 @@ body {
   white-space: nowrap;
   background-color: rgba(123, 175, 243, 0.59);
   border-radius: 1.752rem;
+  cursor: pointer;
+}
+.group-5-67F:active
+{
+  opacity: 0.5;
 }
 .desktop-1-4Qu .auto-group-us8h-f9o .s-kin-ni-bt-v-mi-nht-zSH .auto-group-6hgh-5nV .s-kin-ni-bt-nht-qFs .image-3-JDK {
   width: 68rem;
@@ -354,9 +359,19 @@ body {
   position: absolute;
   left: 1.6rem;
   top: 7.3rem;
-  background-image: url('../assets/image-3.png');
-  background-repeat: repeat;
-  background-size: 51.13%;
+  background-image: url('https://www.uit.edu.vn/sites/vi/files/image_from_word/tot_nghiep.jpg');
+  /* background-repeat: repeat; */
+  /* background-size: 100%; */
+  background-size: contain;
+  border-radius: 2.5564rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.image-3-JDK img
+{
+  width: 100%;
+  height: auto;
   border-radius: 2.5564rem;
 }
 .desktop-1-4Qu .auto-group-us8h-f9o .s-kin-ni-bt-v-mi-nht-zSH .auto-group-6hgh-5nV .frame-4-QGM {
@@ -1414,7 +1429,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #00a2fd;
+  background-color: rgba(5, 120, 255, 0.6299999952);
   border-radius: 2.1rem;
 }
 .desktop-1-4Qu .auto-group-qb6v-Fzu .khi-s-kin-chi-tit-di-aGV .thanh-chuyn-trang-c9B .group-10-Jpd {
@@ -1430,7 +1445,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -1447,7 +1462,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -1464,7 +1479,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -1481,7 +1496,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -1498,7 +1513,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -1515,7 +1530,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -1532,7 +1547,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -1549,7 +1564,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2016,7 +2031,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #00a2fd;
+  background-color: rgba(5, 120, 255, 0.6299999952);
   border-radius: 2.1rem;
 }
 .desktop-1-4Qu .auto-group-qb6v-Fzu .khi-s-kin-chi-tit-di-rS9 .thanh-chuyn-trang-eSR .group-10-Gs7 {
@@ -2032,7 +2047,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2049,7 +2064,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2066,7 +2081,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2083,7 +2098,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2100,7 +2115,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2117,7 +2132,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2134,7 +2149,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2151,7 +2166,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2618,7 +2633,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #00a2fd;
+  background-color: rgba(5, 120, 255, 0.6299999952);
   border-radius: 2.1rem;
 }
 .desktop-1-4Qu .auto-group-qb6v-Fzu .khi-s-kin-chi-tit-di-HDo .thanh-chuyn-trang-yB3 .group-10-brd {
@@ -2634,7 +2649,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2651,7 +2666,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2668,7 +2683,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2685,7 +2700,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2702,7 +2717,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2719,7 +2734,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2736,7 +2751,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2753,7 +2768,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  
   border-radius: 2.1rem;
   flex-shrink: 0;
 }
@@ -2866,4 +2881,35 @@ body {
 .nav
 {
   transition: color 0.3s, text-decoration 0.3s, border-bottom-color 0.3s;
+}
+
+.left
+{
+  cursor: pointer;
+}
+.left:active
+{
+  opacity: 0.5;
+}
+.right{
+  cursor: pointer;
+}
+
+.right:active
+{
+  opacity: 0.5;
+}
+.count
+{
+  background-color: white;
+  border: 2px solid #000000;
+}
+
+.count:active
+{
+  opacity: 0.5;
+}
+.xemthem:active
+{
+  opacity: 0.5;
 }
