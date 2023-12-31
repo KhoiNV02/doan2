@@ -60,7 +60,9 @@
 
     "mongoose-slug-generator": "^1.0.4",
 
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+
+    "typo": "^1.0.6"
 
   },
 

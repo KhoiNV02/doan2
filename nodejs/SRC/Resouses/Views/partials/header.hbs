@@ -15,7 +15,7 @@
         <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-LYm">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
         <p class="truyn-thng-v-s-kin-LBP">Truyền thông và sự kiện</p>
         <img class="image-2-Dky" src="../page-1/assets/image-2.png"/>
-      </div>
+      </div>  
     <a href="#"><p class="trang-ch-xCm nav">Trang chủ</p></a>  
       <a href="#">  <p class="xt-thng-pEy nav">Xét thưởng</p></a>
      <a href="#"> <p class="ng-gp-ir9 nav">Đóng góp</p></a>
@@ -71,6 +71,10 @@
    }
 
   var nav=document.querySelectorAll(".nav");
+  var do1=document.querySelector(".auto-group-stmo-EEq");
+  do1.onclick=function(){
+     window.location.href = `{{local}}/home?MSSV=${t}`;
+  }
   for (var i = 0; i < nav.length; i++) {
   nav[i].onclick = function (index) {
     return function () {

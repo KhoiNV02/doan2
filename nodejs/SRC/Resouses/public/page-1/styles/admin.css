@@ -95,7 +95,7 @@ body {
 .admin-duyt-s-kin-nyB .auto-group-leto-j7j .cc-s-kin-ch-c-duyt-GYu {
   margin: 0rem 0rem 8.1rem 2.8rem;
   text-align: center;
-  font-size: 4.8rem;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1.2125;
   color: #0138a3;
@@ -929,7 +929,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6361rem;
+  font-size: 0.9361rem;
   font-weight: 700;
   line-height: 1.2125;
   color: #000000;
@@ -937,6 +937,7 @@ body {
   white-space: nowrap;
   background-color: rgba(123, 175, 243, 0.59) ;
   border-radius: 0.7952rem;
+  cursor: pointer;
 }
 .admin-duyt-s-kin-nyB .auto-group-leto-j7j .auto-group-qcms-JaZ .s-kin-mi-99F {
   margin: 0.1rem 0rem 0.2rem 0rem;
@@ -1289,13 +1290,125 @@ body {
 }
 
 .chua{
+display: block;
+}
+
+
+.auto-group-dkzh-f1o {
+  box-sizing: border-box;
+  /* padding: 2rem 0.8rem 2rem 4.85rem; */
+  height: 100%;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 2.5rem;
+  flex-shrink: 0;
+  padding-left: 10px;
+  height: 50px;
+  width: 30rem;
+font-size: 1.5rem;
+  appearance: none; /* Ẩn giao diện mặc định của select box */
+   /* Đường dẫn đến hình ảnh của nút chỉ xuống */
+  background-size: 30px; /* Kích thước của nút chỉ xuống */
+  background-position: right 10px center; /* Vị trí của nút chỉ xuống */
+  background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  cursor: pointer; 
 }
-.chua s-kin-mi-DBj
+.left 
 {
-  padding-top: 100px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)!important;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
 }
+.right{
+  display: flex;
+  gap:1rem
+}
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 1rem;
+  width: 13.3885rem;
+  height: 3.2704rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4016rem;
+  font-weight: 700;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: rgba(123, 175, 243, 0.59);
+  border-radius: 1.752rem;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.5;
+}
+table {
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
+
+}
+thead{
+font-size: 2.3rem;
+
+}
+th, td {
+  border: 2px solid #ddd;
+  padding: 8px;
+  text-align: left;
+
+}
+td{
+font-size: 2rem;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#backToTopBtn p
+{
+  font-size: 2rem;
+}
+
+#backToTopBtn:hover {
+  background-color: #0056b3;
+}
+

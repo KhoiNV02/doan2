@@ -39,6 +39,7 @@ app.engine(
 );
 app.use(methodOverride('_method'))
 app.set('view engine', '.hbs');
+
 app.set('views', path.join(__dirname, 'Resouses','views'));
 //sửa link đường dẫn mặc định thành link đường dẫn hợp lệ
 //render đến các trang đó thông qua đường dẫn

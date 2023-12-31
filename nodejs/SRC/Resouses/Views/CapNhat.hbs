@@ -175,7 +175,7 @@
         }
     }
 var data={Mang:Mang};
-    axios.post('http://localhost:3000/CapNhat/delete', data)
+    axios.post('{{local}}/CapNhat/delete', data)
     .then(response => {
      alert("Xóa các chứng chỉ được chọn thành công");
      location.reload();
@@ -277,7 +277,7 @@ update.onclick=function()
     update.onclick=null;
 upload().then(function(url){
    data= {URL:url,MSSV:t,TYPE:selectedValue};
-    axios.post('http://localhost:3000/CapNhat/Update', data)
+    axios.post('{{local}}/CapNhat/Update', data)
     .then(response => {
      alert("cập nhật chứng chỉ thành công");
      location.reload();
@@ -292,7 +292,7 @@ upload().then(function(url){
  var tt={mssv:t};
  console.log(tt.mssv);
 {{!-- window.onload = function() {
-axios.get('http://localhost:3000/CapNhat/getCertificate',{
+axios.get('{{local}}/CapNhat/getCertificate',{
     params: tt, 
   })
 .then(res=>{

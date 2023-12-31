@@ -317,7 +317,7 @@
 <script>
 
   var hot=document.querySelector(".hot");
-   axios.get('http://localhost:3000/home/getHot')
+   axios.get('{{local}}/home/getHot')
 .then(res=>{
   var re=res.data.event[0];
   hot.querySelector('p').textContent=re.name;
@@ -343,7 +343,7 @@ if (paragraph.innerHTML.length > maxLength) {
 })
 
   var res1;
-  axios.get('http://localhost:3000/home/getSchool')
+  axios.get('{{local}}/home/getSchool')
 .then(res=>{
 
    show(0,res.data.event,4);
@@ -359,7 +359,7 @@ res1=data;
 })
 
  var res2;
-  axios.get('http://localhost:3000/home/getMajor')
+  axios.get('{{local}}/home/getMajor')
 .then(res=>{
 
 
@@ -377,7 +377,7 @@ res2=data;
 })
 
  var res3;
-  axios.get('http://localhost:3000/home/getclb')
+  axios.get('{{local}}/home/getclb')
 .then(res=>{
 
 
