@@ -7,6 +7,7 @@ const Course1 = new Schema({
   mssv: {type: String},
   condition: {type: String},
   img:{type: String},
+  year:{type:String}
 });
 
 

@@ -54,15 +54,14 @@ class ThuongController {
   //     .catch(error => next(error));
   // }
   index(req, res, next) {
-    console.log(ye);
   
     const eventQuery = Event.find({
       $and: [
         { 'member.mssv': req.query.MSSV },
-        { 'nam': ye }
+        { 'nam': ye-1 }
       ]
     }).exec();
-  
+    
     const rewardQuery = Reward.find(/* Add your reward query criteria here */).exec();
   
     // Truy vấn để lấy ra các điều kiện từ bảng Event
@@ -81,7 +80,6 @@ class ThuongController {
         const conditionsArray = Array.isArray(arrFlat)
           ? arrFlat
           : (arrFlat ? JSON.parse(arrFlat) : []);
-  console.log(conditionsArray);
 
         // Truy vấn bảng eventCurrent với điều kiện condition không nằm trong mảng điều kiện của Event
         const eventCurrentQuery = eventCurrent.find({ 'condition': { $nin: conditionsArray } }).exec();
@@ -89,6 +87,7 @@ class ThuongController {
         return Promise.all([event, rewards, eventCurrentQuery]);
       })
       .then(([event, rewards, eventCurrentResults]) => {
+        console.log(event);
         res.render('thuong', {
           event: mutipleMongooseToObject(event),
           rewards: mutipleMongooseToObject(rewards),

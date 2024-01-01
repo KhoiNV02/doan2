@@ -3,7 +3,12 @@ const {mutipleMongooseToObject}=require('../../ultil/mongoose');
 class ThuongController {
   //[get]/news
   index(req, res) {
-    certificate.find({mssv:req.query.MSSV}).
+    certificate.find({
+      $and: [
+        { 'mssv': req.query.MSSV },
+        { 'year': new Date().getFullYear() }
+      ]
+  }).
     then( certificate =>
     { 
       res.render('CapNhat',{ showHeaderAndFooter: true,MSSV:req.query.MSSV,certificate:mutipleMongooseToObject(certificate),});
@@ -20,6 +25,7 @@ class ThuongController {
       mssv:req.body.MSSV,
       condition:req.body.TYPE,
       img: req.body.URL,
+      year:new Date().getFullYear(),
     });
     Certificate.save()
     .then(savedSuggestion => {

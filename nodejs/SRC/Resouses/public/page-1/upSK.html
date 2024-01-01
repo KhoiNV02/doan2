@@ -37,21 +37,25 @@
   </div>
   <h1 class="tieude">Form Thêm Mới sự kiện</h1> 
   <div class="auto-group-kplm-kQd">
-    <div class="">
+    <div class="first">
       <label for="">Tên sự kiện</label>
-      <input type="text">
+      <input type="text" class="auto-group-dkzh-f1o">
     </div>
-    <div class="">
+    <div class="first">
       <label for="">Link thông tin sự kiện</label>
-      <input type="text">
+      <input type="text" class="auto-group-dkzh-f1o">
     </div>
-    <div class="">
-      <label for="">Nội dung mô tả ngắn</label>
-      <div>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+    <div class="first">
+      <div class="label">
+        <label for="" class="">Nội dung mô tả ngắn</label>
+        <label for="" class="SuaLoi" style="display: none;">Nội dung sửa lỗi</label>
       </div>
-      <div class="check">Check</div>
+     
+      <div class="textarea">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea name="" id="" cols="30" rows="10" class="SuaLoi" style="display: none;"></textarea>
+      </div>
+      <div class="check"><p>Check</p></div>
     </div>
  
     <select style="background-image: url('../page-1/assets/group.png');" id="GiayKhen" name="cars" class="auto-group-dkzh-f1o" aria-placeholder="Loại hình sự kiện">
@@ -94,24 +98,41 @@
   var capnhatsk=document.querySelector("#capnhatsk");
   var update=document.querySelector("#update");
   var update2=document.querySelector("#update1");
+  var tieude=document.querySelector(".tieude");
+  var check123=document.querySelector(".check");
    var preview = document.getElementById('previewImage');
+   var textarea=document.querySelectorAll('textarea');
+   var SuaLoi=document.querySelectorAll('.SuaLoi');
+   console.log(textarea);
   var che=false;
+  check123.onclick=function()
+  {
+    textarea[0].style.width="30rem";
+    textarea[1].style.width="30rem";
+    SuaLoi[0].style.display='block';
+    SuaLoi[1].style.display='block';
+  }
   CapNhat.onclick=function()
   {
       if (che)
       {
+        CapNhat.textContent='Cập nhật sự kiện';
         capnhatsk.style.display='none';
         che=!che;
         update2.style.display='none';
         update.style.display='flex';
+        tieude.textContent="Form thêm mới sự kiện"
+        tieude.style.color='#0138a3';
       }
       else
       {
         capnhatsk.style.display='flex';
-     
+        CapNhat.textContent='Đóng cập nhật sự kiện';
         update.style.display='none';
         update2.style.display='flex';
         che=!che;
+        tieude.textContent="Form cập nhật sự kiện"
+        tieude.style.color='#63df63';
       }
   }
 

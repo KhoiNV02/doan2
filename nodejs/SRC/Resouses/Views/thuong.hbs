@@ -83,7 +83,6 @@
     <br>
    {{/each}}
     </p>
-    {{!-- <a href="" target="_blank" style="text-decoration: none;"><div class="group-7-cJ9">Đăng ký</div></a> --}}
   </div>
   <div class="footer-GtV">
     <div class="group-9-EaR">
@@ -100,9 +99,8 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-
+var register=document.querySelector("#register");
 var r={{{json eventCurrent}}};
-console.log(r);
 var nav=document.querySelectorAll(".nav");
    for (var j = 0; j < nav.length; j++) {
         nav[j].style.textDecoration = 'none'; // Fix the typo in textDecorator
@@ -112,31 +110,7 @@ var nav=document.querySelectorAll(".nav");
       var MSSV='20520999';
  nav[1].style.color = '#0047fe';
       nav[1].style.textDecoration = 'underline'; // Fix the typo in textDecorator
-  {{!-- for (var i = 0; i < nav.length; i++) {
-  nav[i].onclick = function (index) {
-    return function () {
-      if (index===0)
-      {
-         window.location.href = `{{local}}/home`;
-      }
-      else
-      if (index===1)
-      {
-             window.location.href = `{{local}}/thuong?MSSV=${MSSV1}`;
-      }
-      else
-      if (index===2)
-      {
-      window.location.href = `{{local}}/views`;
-      }
-        else
-      if (index===3)
-      {
-          window.location.href = `{{local}}/CapNhat`;
-      }
-    };
-  }(i);
-} --}}
+
 
  document.getElementById('currentYear').textContent =`Các hoạt động đã tham gia trong năm `+new Date().getFullYear();
  var xemchitiet=document.querySelector("#xemchitiet");
