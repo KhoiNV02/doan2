@@ -43,6 +43,15 @@
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+  function requireLogin(req, res, next) {
+    if (req.session && req.session.userId) {
+        return next(); // Cho phép tiếp tục nếu đã đăng nhập
+    } else {
+        return res.redirect('/login'); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
+    }
+}
+</script>
+<script>
   var cir=document.querySelector('.cir');
   var infoo=document.querySelector('.infoo');
   var ok=false;

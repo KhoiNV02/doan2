@@ -72,7 +72,15 @@ var Acount=[
   pass:'123',
 },
 {
-  account:'CNPM-UIT',
+  account:'UIT',
+  pass:'123',
+},
+{
+  account:'CNPM',
+  pass:'123',
+},
+{
+  account:'GoogleDeveloper',
   pass:'123',
 },
 {
@@ -99,6 +107,27 @@ function check(){
   else
   if (!Acount.some(item => item.account === account.value&&item.pass === pass.value))
   alert("Mật khẩu sai");
+  else
+  if (account.value==='UIT')
+  {
+    showCustomAlert();
+    account.value=1;
+    window.location.href = `{{local}}/upSK?type=${account.value}`;
+  }
+  else
+  if (account.value==='CNPM')
+  {
+    showCustomAlert();
+    account.value=2;
+    window.location.href = `{{local}}/upSK?type=${account.value}`;
+  }
+  else
+  if (account.value==='GoogleDeveloper')
+  {
+    showCustomAlert();
+    account.value=3;
+    window.location.href = `{{local}}/upSK?type=${account.value}`;
+  }
   else
   {
 showCustomAlert();

@@ -7,7 +7,7 @@ const Course1 = new Schema({
   name: {type: String},
   link:{type: String},
   condition:{type:String},
-  img:{type:Array},
+  img:{type:String},
   descript:{type:String},
   type:{type:String},
   dateUp:{type:String},

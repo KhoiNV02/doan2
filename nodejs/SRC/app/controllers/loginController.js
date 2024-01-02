@@ -6,5 +6,9 @@ class LoginController {
   index(req, res) {
    res.render('login',{ showHeaderAndFooter: false });
   }
+  show(req,res)
+  {
+    res.send("Đường dẫn không tồn tại, vui lòng nhập đường dẫn chính xác");
+  }
 }
 module.exports = new LoginController();

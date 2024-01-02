@@ -6,8 +6,9 @@ const meRouter = require('./me');
 const thuongRouter=require('./thuong');
 const CapNhatRouter=require('./CapNhat');
 const loginRouter=require('./login');
-
+const UPSKRounter=require('./UPSK');
 function route(app) {
+    app.use('/upSK', UPSKRounter);
     app.use('/views', newsRouter);
     app.use('/me', meRouter);
     app.use('/detail', detailRouter);
