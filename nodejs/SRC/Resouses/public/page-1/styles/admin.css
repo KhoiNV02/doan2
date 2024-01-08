@@ -1343,7 +1343,7 @@ input {
 }
 
 button {
-  margin-top: 1rem;
+  margin-top: 1rem!important;
   width: 13.3885rem;
   height: 3.2704rem;
   display: flex;
@@ -1356,7 +1356,7 @@ button {
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   background-color: rgba(123, 175, 243, 0.59);
-  border-radius: 1.752rem;
+  border-radius: 1.752rem!important;
   cursor: pointer;
 }
 

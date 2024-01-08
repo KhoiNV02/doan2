@@ -57,7 +57,7 @@ class ThuongController {
   
     const eventQuery = Event.find({
       $and: [
-        { 'member.mssv': req.query.MSSV },
+        { 'member': req.query.MSSV },
         { 'nam': ye-1 }
       ]
     }).exec();

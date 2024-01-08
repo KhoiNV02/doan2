@@ -8,13 +8,13 @@ class UPSKController {
         .sort({ _id: -1 })  // Sắp xếp theo trường createdAt giảm dần
         .then(eventCurrent => { 
             TYPE = req.query.type;
-            res.render('adminUpSK', { eventCurrent: mutipleMongooseToObject(eventCurrent), layout: 'newlayout', TYPE: req.query.type });
+            res.render('adminUpDSSV', { eventCurrent: mutipleMongooseToObject(eventCurrent), layout: 'newlayout', TYPE: req.query.type });
         })
         .catch(error => {
             // Xử lý lỗi nếu cần thiết
         });
 }
-  upSK(req, res) {
+  UPDSSV(req, res) {
     const eventCurrent1= new eventCurrent({
       name:req.body.name,
       link:req.body.link,

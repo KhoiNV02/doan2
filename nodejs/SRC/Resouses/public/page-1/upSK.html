@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../page-1/styles/addSK.css"/>
 </head>
 <body>
-<div class="trang-qun-l-s-kin-333">
+<div class="trang-qun-l-s-kin-333" >
   <div class="header-xQu">
     <div class="auto-group-tpgh-4yj">
       <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-zMb">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
@@ -92,8 +92,36 @@
       <p class="email-uitgmailcom-dyX">Email: UIT@gmail.com</p>
     </div>
   </div>
-</div>
+  <div class="modal">
+    <div class="s-kin-mi-HsB event">
+      <img class="image-4-cuT" src="../page-1/assets/image-4-Xu7.png"/>
+      <p class="th-by-ch-nht-xanh-kEy">Thử bảy Chủ nhật xanh</p>
+      <div class="group-7-2iH">
+        <img class="auto-group-iusz-ZCR" src="../page-1/assets/auto-group-iusz.png"/>
+        <p class="friday-dec-22-2023-Hu7">Friday, Dec 22, 2023</p>
+      </div>
+      <p class="y-l-mt-trong-nhng-hot-ng-ngha-c-t-chc-hng-nm-vo-ma-xun-nhm-mc-ch-gip-nhng-mnh-i-km-may-mn-em-n-cho-mi-ngi-c-hi-i-i-v-gp-c-nhng-iu-ngha-trong-cuc-sng-hi-vng-rng--bQ1">Đây là một trong những hoạt động ý nghĩa, được tổ chức hằng năm vào mùa xuân, nhằm mục đích giúp đỡ những mảnh đời kém may mắn, đem đến cho mọi người cơ hội để đổi đời và gặp được những điều ý nghĩa trong cuộc sống, hi vọng rằng ................</p>
+      <div class="group-6-WvH xemthem">XEM THÊM</div>
+    </div>
+  </div>
+</div> 
+<script>
+  const re=document.querySelector(".modal");
+  re.onclick=function()
+  {
+    re.style.display='none';
+  }
+  const sKinMiHsB = document.querySelector('.s-kin-mi-HsB');
 
+window.addEventListener('scroll', function() {
+  const scrollY = window.scrollY || window.pageYOffset;
+  const viewportHeight = window.innerHeight;
+
+  // Cập nhật vị trí dọc của đối tượng giữa màn hình
+  const newPosition = (viewportHeight - sKinMiHsB.offsetHeight) / 2 + scrollY;
+  sKinMiHsB.style.top = newPosition + 'px';
+});
+</script>
 <script>
   var CapNhat=document.querySelector("#CapNhat");
   var capnhatsk=document.querySelector("#capnhatsk");

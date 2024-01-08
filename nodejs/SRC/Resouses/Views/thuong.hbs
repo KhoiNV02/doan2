@@ -38,7 +38,6 @@
           <tr>
             <th>STT</th>
             <th>Tên Hoạt Động</th>
-            <th>Vai Trò</th>
             <th>Tiêu Chí Xét Danh Hiệu</th>
           </tr>
         </thead>
@@ -50,22 +49,11 @@
              <td>
               {{this.name}}
             </td>
-          <td>
-       
-    {{#each this.member}}
-     {{#if (eq this.mssv '20520999' )}}
-    <ul>
-      {{#each this.mission}}
-        <li>- {{this}}</li>
-      {{/each}}
-    </ul>
-  {{/if}}
-    {{/each}}
-</td>
+        
             <td>     
               <ul>
           {{#each this.condition}}
-          <li class="activity">- {{this}}</li>
+          <li class="activity">{{this}}</li>
           {{/each}}
               </ul>
             </td>
@@ -105,7 +93,6 @@ var nav=document.querySelectorAll(".nav");
    for (var j = 0; j < nav.length; j++) {
         nav[j].style.textDecoration = 'none'; // Fix the typo in textDecorator
         nav[j].style.color = 'black';
-
       }
       var MSSV='20520999';
  nav[1].style.color = '#0047fe';

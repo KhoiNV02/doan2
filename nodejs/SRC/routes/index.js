@@ -7,7 +7,9 @@ const thuongRouter=require('./thuong');
 const CapNhatRouter=require('./CapNhat');
 const loginRouter=require('./login');
 const UPSKRounter=require('./UPSK');
+const UPDSSVRounter=require('./UPDSSV');
 function route(app) {
+    app.use('/upDSSV', UPDSSVRounter);
     app.use('/upSK', UPSKRounter);
     app.use('/views', newsRouter);
     app.use('/me', meRouter);
