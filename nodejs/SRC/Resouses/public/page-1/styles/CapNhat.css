@@ -13,6 +13,7 @@ input {
 	border: none;
 }
 body {
+  position: relative;
   width: 152.5rem;
 }.trang-qun-l-s-kin-333 {
   width: 100%;
@@ -377,4 +378,32 @@ th {
 {
   background-color:#ff2b2b;
   display: none;
+}
+.moden
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.moden .im
+{
+width: 40%;
+height: fit-content;
+}
+.im img
+{
+  width: 100%;
+  height: auto;
+}
+.Big
+{
+  cursor: pointer;
 }

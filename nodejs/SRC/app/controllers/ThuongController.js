@@ -4,6 +4,7 @@ const eventCurrent= require('../models/eventCurrentModel');
 const {mongooseToObject, mutipleMongooseToObject}=require('../../ultil/mongoose');
 const reward = require('../models/rewardModel');
 var ye=new Date().getFullYear();
+var ye2=new Date();
 class ThuongController {
 
   // index(req, res, next) {
@@ -58,11 +59,11 @@ class ThuongController {
     const eventQuery = Event.find({
       $and: [
         { 'member': req.query.MSSV },
-        { 'nam': ye-1 }
-      ]
+        { 'nam': { $gte: ye - 1, $lte: ye } }
+      ],
     }).exec();
     
-    const rewardQuery = Reward.find(/* Add your reward query criteria here */).exec();
+    const rewardQuery = Reward.find({time:{ $gt: ye2 }}).exec();
   
     // Truy vấn để lấy ra các điều kiện từ bảng Event
     const eventConditionsQuery = Event.find({}, { 'condition': 1, '_id': 0 }).exec();

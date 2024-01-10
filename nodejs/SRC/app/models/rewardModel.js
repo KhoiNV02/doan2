@@ -6,6 +6,7 @@ const ObjectId = Schema.ObjectId;
 const Course1 = new Schema({
   name: {type: String},
   link:{type: String},
+  time:{type:Date},
 });
 
 

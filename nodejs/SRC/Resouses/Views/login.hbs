@@ -129,6 +129,11 @@ function check(){
     window.location.href = `{{local}}/upSK?type=${account.value}`;
   }
   else
+  if (account.value==='admin')
+  {
+    window.location.href=`{{local}}/skTieuBieu`;
+  }
+  else
   {
 showCustomAlert();
     window.location.href = `{{local}}/Home?MSSV=${account.value}`;

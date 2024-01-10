@@ -11,7 +11,13 @@
   <link rel="stylesheet" href="../page-1/styles/CapNhat.css"/>
 </head>
 <body>
+    <div class="moden">
+  <div class="im">
+     <img src="../page-1/assets/image-2.png" alt="">
+  </div>
+  </div>
 <div class="trang-qun-l-s-kin-333">
+  
   {{!-- <div class="header-xQu">
     <div class="auto-group-tpgh-4yj">
       <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-zMb">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
@@ -69,7 +75,7 @@
               {{this.condition}}
             </td>
           <td style="text-align: center;">
-            <img src={{this.img}} alt="" style="width: 25%; height: auto;">
+            <img src={{this.img}} alt="" style="width: 25%; height: auto;" class="Big">
           </td>
             <td class="CheckBox">
               <input type="checkbox" class="preference1" name="preference1" value={{this._id}}>
@@ -85,7 +91,7 @@
     <div class="group-7-R2u" id="update">Cập nhật</div>
      <div class="group-7-R2u" id="Xoa">Xóa</div>
   </div>
-  
+ 
   <div class="footer-gzR">
     <div class="group-9-F1w">
       <img class="image-2-U9b" src="../page-1/assets/image-2-Mg1.png"/>
@@ -97,12 +103,29 @@
       <p class="email-uitgmailcom-dyX">Email: UIT@gmail.com</p>
     </div>
   </div>
+
+ 
 </div>
 
 {{!-- <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-storage.js"></script>
 <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.1/firebase-app.js"> --}}
 </script>
 <script>
+  var Big=document.querySelectorAll(".Big");
+    var moden=document.querySelector(".moden");
+    for (var i = 0; i < Big.length; i++) {
+  Big[i].onclick = function (index) {
+    return function () {
+      moden.querySelector("img").setAttribute("src",Big[index].src)
+      moden.style.display='flex';
+    };
+  }(i);
+    }
+  console.log(moden);
+  moden.onclick=function()
+  {
+    moden.style.display='none';
+  }
    var checkbox1 = document.querySelector("#he");
      var checkbox=document.querySelectorAll(".CheckBox");
     // Gán sự kiện "change" cho checkbox

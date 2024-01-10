@@ -34,6 +34,34 @@ app.engine(
       eq: function (a, b) {
         return a === b;
       },
+      formatDate: function (dateString) {
+        if (!dateString) {
+            return ''; // or any default value if needed
+        }
+    
+        // If dateString is not a string, we accept it as it is
+        // if (typeof dateString !== 'string') {
+        //     return dateString;
+        // }
+    
+        // Convert the string to a Date object
+        const dateObject = new Date(dateString);
+    
+        // Check if the value after conversion is valid
+        if (isNaN(dateObject.getTime())) {
+            return ''; // or any default value if needed
+        }
+    
+        // Format the date to 'yyyy-MM-dd'
+        const year = dateObject.getFullYear();
+        const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+        const day = String(dateObject.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+        return formattedDate;
+    },
+    
+    
+    
     },
   }),
 );

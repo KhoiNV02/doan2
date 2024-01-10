@@ -3,13 +3,12 @@ const Event= require('../models/CourseModel');
 const {mutipleMongooseToObject}=require('../../ultil/mongoose');
 var TYPE;
 class UPSKController {
-  //[get]/news
   index(req, res) {
-    eventCurrent.find({ type: req.query.type })
+    eventCurrent.find({})
         .sort({ _id: -1 })  // Sắp xếp theo trường createdAt giảm dần
         .then(eventCurrent => { 
             TYPE = req.query.type;
-            res.render('adminUpDSSV', { eventCurrent: mutipleMongooseToObject(eventCurrent), layout: 'newlayout', TYPE: req.query.type });
+            res.render('SKTieuBieu', { eventCurrent: mutipleMongooseToObject(eventCurrent), layout: 'admin'});
         })
         .catch(error => {
             // Xử lý lỗi nếu cần thiết
@@ -34,27 +33,19 @@ class UPSKController {
   //     res.status(500).json({ error: 'Internal server error' });
   //   });
   // }
-  UPDSSV(req, res) {
-    console.log(req.body);
-
+ Update(req, res) {
     const query = {
-        $and: [
-            { name: req.body.name },
-            { nam: req.body.nam }
-        ]
+        _id: req.body.id,
     };
 
     const update = {
-        name: req.body.name,
-        condition: req.body.condition,
-        nam: req.body.nam,
-        member: req.body.member,
+        type: req.body.type,
     };
 
-    // Use findOneAndUpdate to find and update or insert if not found
-    Event.findOneAndUpdate(query, update, { upsert: true, new: true })
+    // Sử dụng findOneAndUpdate để tìm và cập nhật hoặc thêm mới nếu không tìm thấy
+   eventCurrent.findOneAndUpdate(query, update, { upsert: true, new: true })
         .then(updatedEvent => {
-            // Check if an existing event was found and updated
+            // Kiểm tra xem có sự kiện hiện tại nào được tìm thấy và cập nhật không
             if (updatedEvent) {
                 res.status(200).json({ message: 'Suggestion updated successfully' });
             } else {
@@ -65,7 +56,7 @@ class UPSKController {
             console.error('Error updating or saving suggestion:', error);
             res.status(500).json({ error: 'Internal server error' });
         });
-      }
+}
   updateSK(req, res) {
     const filter = { '_id': req.body.id }; // Điều kiện để xác định bản ghi cần cập nhật
   console.log(filter);

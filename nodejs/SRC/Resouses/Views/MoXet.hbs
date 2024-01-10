@@ -8,21 +8,21 @@
   <title>admin duyệt sự kiện</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C700"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
-  <link rel="stylesheet" href="./styles/admin.css"/>
-  <link rel="stylesheet" href="./styles/MoDKXEtThuong.css">
+  <link rel="stylesheet" href="../page-1/styles/admin.css"/>
+  <link rel="stylesheet" href="../page-1/styles/MoDKXEtThuong.css">
 </head>
 <body>
 <div class="admin-duyt-s-kin-nyB">
   <div class="auto-group-leto-j7j">
-    <div class="header-SXw">
+    {{!-- <div class="header-SXw">
       <div class="auto-group-sdkj-k2q">
         <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-FkH">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
         <p class="truyn-thng-v-s-kin-71o">Truyền thông và sự kiện</p>
-        <img class="image-2-oQR" src="./assets/image-2-qZ7.png"/>
+        <img class="image-2-oQR" src="../page-1/assets/image-2-qZ7.png"/>
       </div>
       <div class="auto-group-jz8h-8hb">
       </div>
-    </div>
+    </div> --}}
     <p class="cc-s-kin-ch-c-duyt-GYu">Mở đăng ký xét thưởng</p>
 <div class="chua">
 
@@ -38,16 +38,15 @@
     </thead>
     <!-- Dòng dữ liệu -->
     <tbody id="tableBody">
-      
+              {{#each rewards}}
       <tr>
-        
-        <td  class="Hang"><p>1</p></td>
-        <td  class="Hang"><input type="text" value="Sinh Viên Năm Tốt Khoa CNPM" placeholder="Mời nhập tên danh hiệu"></td>
-        <td  class="Hang"><input type="url" placeholder="Chưa có link thông tin">
-        <a class="KiemTra" href="https://www.uit.edu.vn/khoa-cong-nghe-phan-mem-mo-don-dang-ky-sinh-vien-5-tot-cap-khoa" target="_blank" style="display: none;">Kiểm tra link cung cấp</a></td>
-        <td class="Ngay">  <input type="date" id="datepicker" name="datepicker"> <div id="Xoa" onclick="deleteRow(this)"><p>Xóa</p></div></td>
-    
+        <td  class="Hang"><p>{{sum @index 1}}</p></td>
+        <td  class="Hang"><input type="text" value={{{json this.name}}} placeholder="Mời nhập tên danh hiệu"></td>
+        <td  class="Hang"><input type="url" placeholder="Nhập link thành công">
+        <a class="KiemTra" href={{this.link}} target="_blank">Kiểm tra link cung cấp</a></td>
+        <td class="Ngay">  <input type="date" class="datepicker" name="datepicker" value={{formatDate this.time}}> <div id="Xoa" onclick="deleteRow(this)"><p>Xóa</p></div></td>
       </tr>
+          {{/each}}
       <tr>
         <td colspan="4"><button class="buttonthem" onclick="addRow()">+</button></td>
       </tr>
@@ -62,7 +61,7 @@
   <a href="#" id="backToTopBtn" onclick="scrollToTop()"><p> &#8593; </p></a>
   <div class="footer-A13">
     <div class="group-9-7S5">
-      <img class="image-2-Sz9" src="./assets/image-2-P4q.png"/>
+      <img class="image-2-Sz9" src="../page-1/assets/image-2-P4q.png"/>
       <p class="trng-i-hc-cng-ngh-thng-tin-hqg-hcm-Nso">Trường đại học Công nghệ Thông tin - ĐHQG - HCM</p>
     </div>
     <div class="group-10-sJm">
@@ -75,11 +74,62 @@
 </div>
 
 <script>
+    var nav=document.querySelectorAll(".moi");
+var Hang=document.querySelectorAll(".Hang");
+var KiemTra=document.querySelectorAll(".KiemTra");
+    for (var j = 0; j < nav.length; j++) {
+        nav[j].style.textDecoration = 'none'; // Fix the typo in textDecorator
+        nav[j].style.color = 'black';
+
+      }
+  nav[1].style.color = '#0047fe';
+      nav[1].style.textDecoration = 'underline';
   var update1=document.querySelector("#update1");
-  var Ngay=document.querySelector(".Ngay");
+ var Ngay=document.querySelectorAll(".Ngay");
+ const currentDate = new Date();
+ console.log(currentDate);
   update1.onclick=function()
+  { 
+    var check=true; 
+     var Results=[];
+     var tr=document.querySelectorAll("tr");
+     console.log(tr);
+     console.log(KiemTra);
+    for (var i=1;i<=tr.length-2;i++)
+    {
+         var data= {name:Hang[3*i-2].querySelector("input").value,link:KiemTra[i-1].href,time:new Date(Ngay[i-1].querySelector("input").value)};
+          if (data.name===''||data.value===''||data.time==='')
+          {
+               alert("Hàng "+i+" đang bị trống");
+            check=false;
+            break;
+          }
+           if (data.time<currentDate)
+             {
+              alert("Ngày hết hạn sự kiện đang nhỏ hơn ngày hiện tại");
+              check=false;
+            break;
+             }
+          Results.push(data);
+    }
+
+  if (check===true)
   {
-    console.log(new Date(Ngay.querySelector("input").value));
+      var data= {Results:Results};
+    axios.post('{{local}}/xet/Update', data)
+    .then(response => {
+      alert("Cập nhật thành công");
+      location.reload();
+    })
+    .catch(error => {
+
+      console.error('Error uploading image:', error);
+    }); 
+  }
+  else
+  {
+   
+  }
   }
    function deleteRow(button) {
       var row = button.parentNode.parentNode;
@@ -88,9 +138,11 @@
 
       // Cách 2: Sử dụng remove()
       row.remove();
+      Hang=document.querySelectorAll(".Hang");
+      Ngay=document.querySelectorAll(".Ngay");
     }
-var Hang=document.querySelectorAll(".Hang");
-var KiemTra=document.querySelectorAll(".KiemTra");
+
+
 var tableBody=document.getElementById('tableBody');
   function addRow() {
        tableBody = document.getElementById('tableBody');
@@ -103,12 +155,13 @@ var tableBody=document.getElementById('tableBody');
           <input type="url" placeholder="Chưa có link thông tin">
           <a class="KiemTra" href="#" target="_blank" style="display: none;">Kiểm tra link cung cấp</a>
         </td>
-        <td class="Ngay">  <input type="date" id="datepicker" name="datepicker"> <div id="Xoa" onclick="deleteRow(this)"><p>Xóa</p></div></td>
+        <td class="Ngay" style="height: 8.68rem">  <input type="date" class="datepicker" name="datepicker"> <div id="Xoa" onclick="deleteRow(this)"><p>Xóa</p></div></td>
       `;
       // Chèn dòng mới trước dòng của nút "buttonthem"
 
       tableBody.insertBefore(newRow, tableBody.lastElementChild);
      Hang=document.querySelectorAll(".Hang");
+      Ngay=document.querySelectorAll(".Ngay");
      KiemTra=document.querySelectorAll(".KiemTra");
      if (typeof Hang[Hang.length - 6] !== 'undefined')
      Hang[Hang.length-3].querySelector("p").textContent=parseInt(Hang[Hang.length-6].querySelector("p").textContent)+1;
@@ -124,6 +177,7 @@ function goi(t)
   var index=t;
 Hang[index].addEventListener('change',function()
 {
+  Ngay[Math.floor(index/3)].style.height="10.6rem";
 KiemTra[Math.floor(parseInt(index) / 3)].href=Hang[index].querySelector("input").value;
 Hang[index].querySelector("input").value='';
 Hang[index].querySelector("input").placeholder='Nhập link thành công';
@@ -134,11 +188,11 @@ KiemTra[Math.floor(parseInt(index) / 3)].style.display='block';
 
 
 
-document.getElementById('datepicker').addEventListener('change', function() {
+{{!-- document.getElementById('datepicker').addEventListener('change', function() {
       var selectedDate = new Date(this.value);
       console.log('Selected Date:', selectedDate);
       // You can use the selectedDate variable for further processing
-    });
+    }); --}}
 // Hiển thị hoặc ẩn nút quay về đầu trang dựa vào vị trí cuộn trang
 window.onscroll = function() {
     showBackToTopButton();

@@ -8,7 +8,15 @@ const CapNhatRouter=require('./CapNhat');
 const loginRouter=require('./login');
 const UPSKRounter=require('./UPSK');
 const UPDSSVRounter=require('./UPDSSV');
+const SKTieuBieuRounter=require('./SKTieuBieu');
+const MoXetRounter=require("./MoXet");
+const CheckCCRounter=require("./CheckCC");
+const CCDetailRounter=require("./CCDetail");
 function route(app) {
+    app.use("/CCDetail",CCDetailRounter);
+    app.use("/CheckCC",CheckCCRounter);
+    app.use('/xet', MoXetRounter);
+    app.use('/skTieuBieu', SKTieuBieuRounter);
     app.use('/upDSSV', UPDSSVRounter);
     app.use('/upSK', UPSKRounter);
     app.use('/views', newsRouter);
