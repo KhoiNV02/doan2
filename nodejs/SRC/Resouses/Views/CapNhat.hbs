@@ -39,9 +39,9 @@
         <option value="2">giấy khen loại hình thể thao</option>
       </select>
       <!-- <div class="group-6-mj3">Upload</div> -->
-      <div id="imageContainer" class="">
+      <div id="imageContainer" class="" style="font-size: 1.5rem; display: flex; gap: 1rem;align-items: center;">
         <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)"> 
-        <img id="previewImage" src="" alt="Preview">
+        <img id="previewImage" src="" alt="Preview" style="display: none;">
     </div>
     </div>
     <div class="mid">
@@ -89,7 +89,7 @@
     </div>
    
     <div class="group-7-R2u" id="update">Cập nhật</div>
-     <div class="group-7-R2u" id="Xoa">Xóa</div>
+     <div class="group-7-R2u" id="Xoa" style="margin-left: 80%;">Xóa</div>
   </div>
  
   <div class="footer-gzR">
@@ -224,6 +224,7 @@ var data={Mang:Mang};
    var mid=document.querySelector(".mid");
    var preview = document.getElementById('previewImage');
     function previewImage(event) {
+      preview.style.display='flex';
     var input = event.target;
     
     var reader = new FileReader();

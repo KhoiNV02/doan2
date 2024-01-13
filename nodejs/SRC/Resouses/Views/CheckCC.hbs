@@ -47,7 +47,7 @@
 </div>
 
 <div id="tableContainer"></div>
-<div class="group-7-R2u" id="update1">Xuất Excel</div>
+<div class="group-7-R2u" id="update1" onclick="exportToExcel()">Xuất Excel</div>
   </div>
   <a href="#" id="backToTopBtn" onclick="scrollToTop()"><p> &#8593; </p></a>
   <div class="footer-A13">
@@ -65,6 +65,59 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
 <script>
+ 
+  function exportToExcel() {
+  // Lấy tham chiếu đến bảng HTML
+   var table = document.getElementById("Bang").cloneNode(true);
+// Xác định vị trí cột cuối
+ for (var i = 1; i < table.rows.length; i++) {
+   if (table.rows[i].cells[table.rows[1].cells.length - 1].querySelector("input").checked===false)
+   {
+    table.deleteRow(i);
+    i--;
+   }
+  }
+  var lastColumnIndex = table.rows[1].cells.length - 1;
+  // Duyệt qua từng dòng và xóa ô ở cột cuối
+  for (var i = 1; i < table.rows.length; i++) {
+    table.rows[i].deleteCell(lastColumnIndex);
+  }
+  // Xác định vị trí cột cuối
+  var lastColumnIndex = table.rows[1].cells.length - 1;
+  // Duyệt qua từng dòng và xóa ô ở cột cuối
+  for (var i = 1; i < table.rows.length; i++) {
+    table.rows[i].deleteCell(lastColumnIndex);
+  }
+  
+  // Tạo một đối tượng Workbook từ thư viện SheetJS
+  var wb = XLSX.utils.table_to_book(table);
+
+  // Chuyển đổi đối tượng Workbook thành một định dạng dữ liệu Excel (binary)
+  var wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
+
+  // Tạo một Blob từ dữ liệu binary và tạo một URL
+  var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+  var url = URL.createObjectURL(blob);
+
+  // Tạo một thẻ a để tạo và kích hoạt sự kiện tải về
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'your_excel_file.xlsx';
+  document.body.appendChild(a);
+  a.click();
+
+  // Loại bỏ thẻ a sau khi tải về hoàn tất
+  document.body.removeChild(a);
+}
+
+// Hàm chuyển đổi chuỗi sang mảng byte
+function s2ab(s) {
+  var buf = new ArrayBuffer(s.length);
+  var view = new Uint8Array(buf);
+  for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+  return buf;
+}
+
     var nav=document.querySelectorAll(".moi");
     for (var j = 0; j < nav.length; j++) {
         nav[j].style.textDecoration = 'none'; // Fix the typo in textDecorator
@@ -122,7 +175,7 @@ function renderTable(data) {
   var STT=1;
   var MSSV;
     // Tạo bảng HTML
-    var table = '<table border="1">';
+    var table = '<table border="1" id="Bang">';
     for (var i = 0; i < data.length; i++) {
         table += '<tr>';
           if (i!=0)

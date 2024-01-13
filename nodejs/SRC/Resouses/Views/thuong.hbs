@@ -64,13 +64,17 @@
         </tbody>
       </table>
     </div>
-    <p class="bn-t-ht-cc-tiu-ch-xt-thng-WW1" id="ring">dưới đây là 1 số hoạt động hiện tại khuyến khích bạn tham gia để nhận thêm tiêu chí
+    <p class="bn-t-ht-cc-tiu-ch-xt-thng-WW1" id="ring">Dưới đây là 1 số hoạt động hiện tại khuyến khích bạn tham gia để nhận thêm tiêu chí
 <br>
-  {{#each eventCurrent}}
-    <a style="margin-bottom: 10px;" href={{this.link}}>{{sum @index 1}}. {{this.name}}</a>
+ 
+    </p>
+    <div class="Khoi">
+ {{#each eventCurrent}}
+    <a style="margin-bottom: 10px;" href={{this.link}} target="_blank">{{sum @index 1}}. {{this.name}}</a>
     <br>
    {{/each}}
-    </p>
+    </div>
+      
   </div>
   <div class="footer-GtV">
     <div class="group-9-EaR">

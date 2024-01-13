@@ -4,6 +4,7 @@ class SiteController {
   //[get]/news
   index(req, res,next) {
     eventCurrent.find({ type: { $ne: '01' } })
+    .sort({ _id: -1 })
    .then(event =>
     {
       res.render('home',{
@@ -18,6 +19,7 @@ class SiteController {
   getSchool(req,res,next)
   {
     eventCurrent.find({type:'1'})
+    .sort({ _id: -1 })
    .then(event =>
     {
       res.status(200).json({event});
@@ -29,6 +31,7 @@ class SiteController {
   getMajor(req,res,next)
   {
     eventCurrent.find({type:'2'})
+    .sort({ _id: -1 })
    .then(event =>
     {
       res.status(200).json({event});
@@ -40,6 +43,7 @@ class SiteController {
   getclb(req,res,next)
   {
     eventCurrent.find({type:'3'})
+    .sort({ _id: -1 })
    .then(event =>
     {
       res.status(200).json({event});

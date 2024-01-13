@@ -27,10 +27,12 @@
 
 
   <div class="container">
+    
    <div class="left">
+   {{!-- <button id="downloadButton">Download Excel</button> --}}
     <h1>Upload Excel File</h1>
     <input type="file" id="fileInput" accept=".xlsx, .xls" onchange="handleFile(event)">
-    <p id="status"></p>
+    <p id="status">vui lòng chọn file định dạng Excel phải có chứa 1 cột là "MSSV" hoặc "Mã số sinh viên"</p>
    </div>
     <div class="right">
       <select style="background-image: url('../page-1/assets/group.png');" id="Sukien" name="cars" class="auto-group-dkzh-f1o" aria-placeholder="Loại hình sự kiện">
@@ -64,7 +66,42 @@
     </div>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+{{!-- <script>
+document.getElementById('downloadButton').addEventListener('click', function() {
+  // Đường dẫn đến file CSV (thay thế bằng đường dẫn thực của file Excel của bạn)
+  var csvFilePath = 'path/to/your/file.csv';
+
+  // Sử dụng thư viện papaparse để đọc dữ liệu từ file CSV
+  Papa.parse(csvFilePath, {
+    download: true,
+    complete: function(results) {
+      // Tạo đối tượng Blob từ dữ liệu CSV
+      var csvData = results.data.join('\n');
+      var blob = new Blob([csvData], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+      // Tạo đường dẫn đến blob
+      var url = window.URL.createObjectURL(blob);
+
+      // Tạo một thẻ a (link) ẩn và thiết lập các thuộc tính
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'example.xlsx';
+
+      // Thêm thẻ a vào DOM và kích hoạt sự kiện click
+      document.body.appendChild(a);
+      a.click();
+
+      // Loại bỏ thẻ a sau khi tải xong
+      document.body.removeChild(a);
+
+      // Loại bỏ đối tượng Blob khi không cần thiết nữa
+      window.URL.revokeObjectURL(url);
+    }
+  });
+});
+</script> --}}
 <script>
 var ok={{{json eventCurrent}}};
 
@@ -100,18 +137,32 @@ selectBox.addEventListener("change", function() {
     {
       alert("Chưa đăng tải danh sách tham gia");
     }
+    else
+    {
     var td=document.querySelectorAll('tr');
   var Ma=[];
   var ind;
+  var KiemTra=0;
   for (var o=0;o<td[0].querySelectorAll("td").length;o++)
   {
     if (td[0].querySelectorAll("td")[o].textContent==="MSSV"||td[0].querySelectorAll("td")[o].textContent==="Mã số sinh viên")
-   ind=o;
+    {ind=o;
+    KiemTra++;
+    }
   }
+if (KiemTra===0)
+{
+       alert("Hiện tại không có cột nào chứa giá trị là 1 Mã số sinh viên vui lòng kiểm tra lại");
+}
+else
+{
   for (var o=1;o<td.length;o++)
   {
  Ma.push(td[o].querySelectorAll("td")[ind].textContent);
   }
+}
+  if (KiemTra===1)
+  {
      data= {name:selectedValue,nam:currentYear,member:Ma,condition:condi};
     axios.post('{{local}}/upDSSV/UPDSSV', data)
     .then(response => {
@@ -122,6 +173,14 @@ selectBox.addEventListener("change", function() {
 
       console.error('Error uploading image:', error);
     });
+    }
+    else
+    if (KiemTra>1)
+    {
+     
+      alert("Hiện tại có nhiều hơn 1 cột là 'MSSV' hoặc 'Mã số sinh viên' vui lòng kiểm tra lại");
+    }
+    }
   }
     var nav=document.querySelectorAll(".moi");
    for (var j = 0; j < nav.length; j++) {
@@ -159,6 +218,7 @@ selectBox.addEventListener("change", function() {
         renderTable(uniqueData);
     };
     reader.readAsArrayBuffer(file);
+  
 }
 
 function removeDuplicates(data) {
@@ -192,6 +252,32 @@ function renderTable(data) {
 
     // Hiển thị bảng trên trang web
     tableContainer.innerHTML = table;
+       var KiemTra=0;
+        var td=document.querySelectorAll('tr');
+  for (var o=0;o<td[0].querySelectorAll("td").length;o++)
+  {
+    if (td[0].querySelectorAll("td")[o].textContent==="MSSV"||td[0].querySelectorAll("td")[o].textContent==="Mã số sinh viên")
+    {ind=o;
+    KiemTra++;
+    }
+  } var status=document.querySelector("#status");
+  if (KiemTra===0)
+  {
+    
+     status.textContent='Hiện tại không có cột nào chứa giá trị là 1 Mã số sinh viên vui lòng kiểm tra lại';
+     status.style.color='red';
+  }
+  else
+  if (KiemTra>1)
+  {
+  status.textContent='Hiện tại có nhiều hơn 1 cột là "MSSV" hoặc "Mã số sinh viên" vui lòng kiểm tra lại';
+     status.style.color='red';
+  }
+  else
+  {
+   status.textContent='Định dạng file excel đã chính xác';
+     status.style.color='black';   
+  }
 }
 
 </script>

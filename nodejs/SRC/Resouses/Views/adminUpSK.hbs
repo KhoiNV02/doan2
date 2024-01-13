@@ -365,14 +365,14 @@ upload().then(function(url){
 </script>
 <script>
 
-const apiKey = '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'; // Thay thế YOUR_API_KEY bằng API key của bạn
+const apiKey = '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'; // Thay thế YOUR_API_KEY bằng API key của bạn
 
 function sendMessage() {
   alert("Hệ thống đang kiểm tra, bạn vui lòng chờ trong giây lát");
   return new Promise(function(resolve,reject)
   {
 const userInput =textarea[0].value;
-  const userMessage = `Chỉ ra lỗi và gợi ý viết tốt hơn trong đoạn văn Tiếng Việt sau: "${userInput}"`;
+  const userMessage = `Chỉ ra tất cả lỗi về từ vựng, cấu trúc... và viết lại đoạn văn (trong ngữ cảnh mô tả một sự kiện sắp được tổ chức) sau: "${userInput}"`;
 
   // Gửi yêu cầu đến ChatGPT API và xử lý câu trả lời
   const url ='https://api.openai.com/v1/chat/completions';
