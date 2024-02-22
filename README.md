@@ -3,6 +3,7 @@
 ## Mô tả
 [Phần mềm quản lý hoạt động, sự kiện và câu lạc bộ tại đại học UIT] - là một phần mềm tổng hợp, quản lý các hoạt động sự kiện tại đại học Công nghệ Thông tin dành cho sinh viên của trường.
 
+## Demo : https://qlsk-uit.onrender.com/
 ## Hướng Dẫn Cài Đặt
 
 1. **Yêu cầu Hệ Thống:**
