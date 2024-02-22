@@ -88,7 +88,20 @@
   for (var i = 1; i < table.rows.length; i++) {
     table.rows[i].deleteCell(lastColumnIndex);
   }
-  
+  var lastColumnIndex = table.rows[1].cells.length - 1;
+  var qu=document.querySelectorAll(".note");
+ // Thêm dữ liệu Ghi Chú vào bảng
+{{!-- table += '<td>' + 'Ghi Chú' + '</td>'; --}}
+for (var i = 1; i < table.rows.length; i++) {
+  var noteCell = table.rows[i].insertCell(lastColumnIndex);
+  if (qu[i - 1]) {
+    noteCell.innerHTML = qu[i - 1].value;
+  } else {
+    noteCell.innerHTML = ''; // hoặc giá trị mặc định khác
+  }
+}
+
+
   // Tạo một đối tượng Workbook từ thư viện SheetJS
   var wb = XLSX.utils.table_to_book(table);
 
@@ -102,7 +115,7 @@
   // Tạo một thẻ a để tạo và kích hoạt sự kiện tải về
   var a = document.createElement('a');
   a.href = url;
-  a.download = 'your_excel_file.xlsx';
+  a.download = 'DanhSachXetThuong.xlsx';
   document.body.appendChild(a);
   a.click();
 
@@ -192,12 +205,14 @@ function renderTable(data) {
             table += '<td>' + data[i][j] + '</td>';
             MSSV=data[i][j];
         }
+        if (i===0)
+        table+='<td>'+'Ghi chú'+'</td>';
         if(i!=0)
         {
+          table+='<td>'+'<textarea class="note" name="w3review" rows="4" cols="50"></textarea>'+'</td>';
           table+='<td>'+'<a href="#" target="_blank">Xem chứng chỉ</a>'+'</td>';
-          table+='<td>'+'<input type="checkbox" class="preference1" name="preference1" value="">'+'</td>';
+          table+='<td>'+'<input type="checkbox" class="preference1" name="preference1" value="true" checked style="display:none">'+'</td>';
         }
-
         table += '</tr>';
     }
     // Hiển thị bảng trên trang web

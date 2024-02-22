@@ -288,6 +288,7 @@ upload().then(function(url){
     });
                   });
   }
+  //sửa folder views
   else
   {
      data= {id:capnhatsk.value,name:ch[0].value,link:ch[1].value,condition:selectedValue,img:preview.src,descript:ch[2].value,type:Cap,dateUp:result};
@@ -352,7 +353,7 @@ upload().then(function(url){
     axios.post('{{local}}/upSK/upsk', data)
     .then(response => {
      alert("Thêm mới sự kiện thành công");
-    nav[1].onclick();
+    {{!-- nav[1].onclick(); --}}
     })
     .catch(error => {
 
@@ -365,14 +366,14 @@ upload().then(function(url){
 </script>
 <script>
 
-const apiKey = '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'; // Thay thế YOUR_API_KEY bằng API key của bạn
+const apiKey = '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'; // Thay thế YOUR_API_KEY bằng API key của bạn
 
 function sendMessage() {
   alert("Hệ thống đang kiểm tra, bạn vui lòng chờ trong giây lát");
   return new Promise(function(resolve,reject)
   {
 const userInput =textarea[0].value;
-  const userMessage = `Chỉ ra tất cả lỗi về từ vựng, cấu trúc... và viết lại đoạn văn (trong ngữ cảnh mô tả một sự kiện sắp được tổ chức) sau: "${userInput}"`;
+  const userMessage = ` viết lại đoạn văn (trong ngữ cảnh mô tả một sự kiện sắp được tổ chức) sau: "${userInput}"`;
 
   // Gửi yêu cầu đến ChatGPT API và xử lý câu trả lời
   const url ='https://api.openai.com/v1/chat/completions';
